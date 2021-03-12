@@ -15,7 +15,7 @@ jobs:
         run: |
           java -v
           echo ${dcuk}
-          cd ..
+          cd ../..
           mvn test
         with:
           duck:"4545"

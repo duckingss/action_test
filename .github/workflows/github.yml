@@ -1,6 +1,7 @@
 name: Java CI
-on: [push]
-  branch: github
+on: 
+  push:
+    branch: github
 
 jobs:
   build:

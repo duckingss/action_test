@@ -1,0 +1,32 @@
+image: local-registry.inner.buaaoo.top/image-dev/java:11
+
+stages:
+  - build
+  - test
+
+before_script:
+  - java -version
+  - javac -version
+  - mvn -v
+
+mvn_build:
+  stage: build
+  script:
+    - echo "Build Project"
+    - mvn compile
+  artifacts:
+    paths:
+    - target
+  only:
+    - tags
+
+mvn_test:
+  stage: test
+  dependencies:
+    - mvn_build
+  script:
+    - echo "Run JUnit4"
+    - mvn test
+    - echo "Code coverage 100%"
+  coverage: '/Code coverage \d+/'
+

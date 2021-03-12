@@ -12,11 +12,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+          duck: 15
       - name: test with maven
         run: |
           java -v
-          echo ${dcuk}
+          ls -a
+          pwd
           cd ../..
           mvn test
-        with:
-          duck: 4545
